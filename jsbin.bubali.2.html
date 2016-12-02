@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by vargaelod (http://jsbin.com/bubali/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="színesóra">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+ <link href="https://fonts.googleapis.com/css?family=Calligraffitti" rel="stylesheet"> 
+  <title>színesóra</title>
+<style id="jsbin-css">
+* { margin: 0; padding: 0; }
+html, body {
+  height:100%;
+}
+#clock {
+  text-align: right;
+  text-align: center;
+  position: relative;
+  font-size: 100px;
+  margin-top: -50px;
+  top: 50%;
+  font-family: 'Calligraffitti', cursive;
+}
+</style>
+</head>
+<body>
+<div id="clock">12:13:14</div>
+  
+<script id="jsbin-javascript">
+function colorClock(){
+  var date = new Date();
+
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+
+  if (hours <= 9) {
+    hours = "0" + hours;
+  }
+  if (minutes <= 9) {
+    minutes = "0" + minutes;
+  }
+  if (seconds <= 9) {
+    seconds = "0" + seconds;
+  }
+
+  var clockFace = hours + ' : ' + minutes + ' : ' + seconds;
+  var hexColor = '#' + seconds + seconds + minutes;
+
+  document.getElementById('clock').innerHTML = clockFace;
+  document.body.style.background = hexColor;
+
+  setTimeout(function() {
+    colorClock();
+  }, 1000);
+}
+colorClock();
+</script>
+</body>
+</html>
